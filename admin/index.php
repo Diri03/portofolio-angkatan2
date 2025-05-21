@@ -16,7 +16,7 @@
             $_SESSION["ID_USER"] = $row["id"];
             header("location:dashboard.php");
         }else {
-            header("location:index.php?error=login");
+            header("location:index.php?login=error");
         }
     }
 ?>
@@ -39,6 +39,16 @@
                                 Login Form
                             </div>
                             <div class="card-body">
+                                <?php if (isset($_GET["access"])): ?>
+                                    <div class="alert alert-warning text-center" role="alert">
+                                        Anda Harus Login Terlebih Dahulu
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (isset($_GET["login"])): ?>
+                                    <div class="alert alert-danger text-center" role="alert">
+                                        Mohon Periksa Kembali Email dan Password Anda!!
+                                    </div>
+                                <?php endif; ?>
                                 <form action="" method="post">
                                     <div class="mb-3">
                                         <label for="" class="form-label">Email</label>
