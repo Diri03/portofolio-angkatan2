@@ -18,10 +18,22 @@
     $queryEdit = mysqli_query($config, "SELECT * FROM users WHERE id='$id_user'");
     $rowEdit = mysqli_fetch_assoc($queryEdit);
 
-    if (isset($_POST["edit"])) {
+    if (isset($_GET["edit"])) {
+        $nilaiName = $rowEdit["name"];
+        $nilaiEmail = $rowEdit["email"];
+    } else {
+        $nilaiName = "";
+        $nilaiEmail = "";
+    }
+
+    if (isset($_POST["ubah"])) {
         $name = $_POST["name"];
         $email = $_POST["email"];
-        $password = sha1($_POST["password"]);
+        if (empty($_POST["password"])) {
+            $password = $rowEdit["password"];
+        }else{
+            $password = sha1($_POST["password"]);
+        }
 
         $queryUpdate = mysqli_query($config, "UPDATE users SET name='$name', email='$email', password='$password' WHERE id='$id_user'");
         if ($queryUpdate) {
@@ -56,7 +68,7 @@
                                             
                                         </div>
                                         <div class="col-sm-10">
-                                            <input required type="text" name="name" class="form-control" placeholder="Masukkan Nama Anda" value="<?php echo $rowEdit["name"]; ?>">
+                                            <input required type="text" name="name" class="form-control" placeholder="Masukkan Nama Anda" value="<?php echo $nilaiName; ?>">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -64,15 +76,15 @@
                                             <label for="">Email *</label>
                                         </div>
                                         <div class="col-sm-10">
-                                            <input required type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" value="<?php echo $rowEdit["email"]; ?>">
+                                            <input required type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" value="<?php echo $nilaiEmail; ?>">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <div class="col-sm-2">
-                                            <label for="">Password *</label>
+                                            <label for="">Password <?php echo isset($_GET["edit"]) ? "" : "*"; ?></label>
                                         </div>
                                         <div class="col-sm-10">
-                                            <input required type="password" name="password" class="form-control" placeholder="Masukkan Password Anda">
+                                            <input <?php echo isset($_GET["edit"]) ? "" : "required"; ?> type="password" name="password" class="form-control" placeholder="Masukkan Password Anda">
                                         </div>
                                     </div>
                                     <div class="mb-3 row" align="center">
