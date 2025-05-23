@@ -14,6 +14,7 @@
             $row = mysqli_fetch_assoc($query);
             $_SESSION["NAME"] = $row["name"];
             $_SESSION["ID_USER"] = $row["id"];
+            $_SESSION["LEVEL"] = $row["id_level"];
             header("location:dashboard.php");
         }else {
             header("location:index.php?login=error");

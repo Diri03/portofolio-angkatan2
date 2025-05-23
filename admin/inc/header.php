@@ -31,9 +31,15 @@
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="user.php">User</a>
-                </li>
+                <?php 
+                      if (isset($_SESSION["LEVEL"]) && $_SESSION["LEVEL"] == 1) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="user.php">User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="dashboard.php?page=manage-profile" class="nav-link">Profile</a>
+                        </li>
+                <?php } ?>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
