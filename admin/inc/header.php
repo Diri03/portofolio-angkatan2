@@ -1,11 +1,9 @@
-<?php
+<?php 
     session_start();
     $name = isset($_SESSION["NAME"]) ? $_SESSION["NAME"] : "";
     if (empty($name)) {
         header("location:index.php?access=failed");
     }
-
-
 ?>
 
 <header class="shadow">
@@ -18,7 +16,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="dashboard.php">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,10 +32,13 @@
                 <?php 
                       if (isset($_SESSION["LEVEL"]) && $_SESSION["LEVEL"] == 1) { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="user.php">User</a>
+                            <a class="nav-link" href="?page=user">User</a>
                         </li>
                         <li class="nav-item">
-                            <a href="dashboard.php?page=manage-profile" class="nav-link">Profile</a>
+                            <a href="?page=manage-profile" class="nav-link">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?page=testimonials" class="nav-link">Testimoni</a>
                         </li>
                 <?php } ?>
             </ul>

@@ -1,3 +1,9 @@
+<?php 
+    include "config/koneksi.php";
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +21,18 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                Dashboard
+                                <?php echo isset($_GET["page"]) ? str_replace("-", " ", ucfirst($_GET["page"])) : "Home" ?>
                             </div>
                             <div class="card-body">
                                 <?php 
-                                    if (isset($_GET["page"]) && file_exists("content/" . $_GET["page"]) . ".php") {
-                                        include "content/" . $_GET["page"]. ".php";
+                                    if (isset($_GET["page"])) {
+                                        if (file_exists("content/". $_GET["page"]. ".php")) {
+                                            include "content/" . $_GET["page"]. ".php";
+                                        }else {
+                                            include "content/notfound.php";
+                                        }
+                                    }else{
+                                        include "content/home.php";
                                     }
                                 ?>
                             </div>
