@@ -14,7 +14,7 @@
         <div class="d-flex justify-content-end mb-3">
             <a href="?page=tambah-fact" class="btn btn-primary">+</a>
         </div>
-        <table class="table table-bordered table-striped">
+        <table id="table" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No</th>

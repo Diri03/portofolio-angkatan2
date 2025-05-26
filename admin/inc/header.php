@@ -1,9 +1,9 @@
 <?php 
-    session_start();
-    $name = isset($_SESSION["NAME"]) ? $_SESSION["NAME"] : "";
-    if (empty($name)) {
-        header("location:index.php?access=failed");
-    }
+    // session_start();
+    // $name = isset($_SESSION["NAME"]) ? $_SESSION["NAME"] : "";
+    // if (empty($name)) {
+    //     header("location:index.php?access=failed");
+    // }
 ?>
 
 <header class="shadow">
@@ -35,7 +35,13 @@
                     <li>
                         <a href="?page=fact" class="dropdown-item">Fact</a>
                     </li>
+                    <li>
+                        <a href="?page=contact" class="dropdown-item">Contact</a>
+                    </li>
                 </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=service">Services</a>
                 </li>
                 <?php 
                       if (isset($_SESSION["LEVEL"]) && $_SESSION["LEVEL"] == 1) { ?>
@@ -47,7 +53,7 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php echo $name; ?>
+                        <?php echo $_SESSION["NAME"]; ?>
                     </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="php/keluar.php">Keluar</a></li>

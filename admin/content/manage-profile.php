@@ -3,6 +3,9 @@
 
     if (isset($_POST["simpan"])) {
         $photo = $_FILES["photo"]["name"];
+        $tmp_name = $_FILES["photo"]["tmp_name"];
+        $filename = uniqid() . "_" . basename($photo);
+        $filepath = "uploads/" . $filename;
         $title = $_POST["title"];
         $content = $_POST["content"];
         $birthday = $_POST["birthday"];
@@ -19,30 +22,57 @@
         if (mysqli_num_rows($queryProfile) > 0) {
             $rowProfile = mysqli_fetch_assoc($queryProfile);
             $id = $rowProfile["id"];
-            $update = mysqli_query($config, "UPDATE about SET 
-            content='$content',
-            title='$title',
-            birthday='$birthday',
-            website='$website',
-            phone='$phone',
-            city='$city',
-            degree='$degree',
-            email='$email',
-            freelance='$freelance',
-            photo='$photo',
-            detailTitle='$detailTitle' WHERE id='$id'");
-            header("location:?page=manage-profile&ubah=berhasil");
+
+            // Check if photo is uploaded
+            if (!empty($photo)) {
+                // If photo is uploaded, move it to the uploads directory
+                unlink("uploads/" . $rowProfile["photo"]);
+                move_uploaded_file($tmp_name, $filepath);
+
+                $update = mysqli_query($config, "UPDATE about SET 
+                content='$content',
+                title='$title',
+                birthday='$birthday',
+                website='$website',
+                phone='$phone',
+                city='$city',
+                degree='$degree',
+                email='$email',
+                freelance='$freelance',
+                photo='$filename',
+                detailTitle='$detailTitle' WHERE id='$id'");
+                header("location:?page=manage-profile&ubah=berhasil");
+            } else {
+                // If no photo is uploaded, keep the existing photo
+                
+                $photo = $rowProfile["photo"];
+                $update = mysqli_query($config, "UPDATE about SET 
+                content='$content',
+                title='$title',
+                birthday='$birthday',
+                website='$website',
+                phone='$phone',
+                city='$city',
+                degree='$degree',
+                email='$email',
+                freelance='$freelance',
+                detailTitle='$detailTitle' WHERE id='$id'");
+                header("location:?page=manage-profile&ubah=berhasil");
+            }
+
         }else{
             if (!empty($photo)) {
-                $insertQ = mysqli_query($config, "INSERT INTO about (content, title, birthday, website, phone, city, degree, email, freelance, detailTitle) VALUES 
-                ('$content', '$title', '$birthday', '$website', '$phone', '$city', '$degree', '$email', '$freelance', '$detailTitle')");
+                move_uploaded_file($tmp_name, $filepath);
+                $insertQ = mysqli_query($config, "INSERT INTO about (content, title, birthday, website, phone, city, degree, email, freelance, photo, detailTitle) VALUES 
+                ('$content', '$title', '$birthday', '$website', '$phone', '$city', '$degree', '$email', '$freelance', '$filename', '$detailTitle')");
             
                 if ($insertQ) {
                     header("location:?page=manage-profile&tambah=berhasil");
                 }
             }else {
+                move_uploaded_file($tmp_name, $filepath);
                 $insertQ = mysqli_query($config, "INSERT INTO about (content, title, birthday, website, phone, city, degree, email, freelance, photo, detailTitle) VALUES 
-                ('$content', '$title', '$birthday', '$website', '$phone', '$city', '$degree', '$email', '$freelance', '$photo', '$detailTitle')");
+                ('$content', '$title', '$birthday', '$website', '$phone', '$city', '$degree', '$email', '$freelance', '$filename', '$detailTitle')");
             
                 if ($insertQ) {
                     header("location:?page=manage-profile&tambah=berhasil");
@@ -51,9 +81,7 @@
         }
 
         // if ($photo["error"] == 0) {
-        //     $filename = uniqid() . "_" . basename($photo["name"]);
-        //     $filepath = "uploads/" . $filename;
-        //     move_uploaded_file($photo["tmp_name"], $filepath);
+            
         // }
 
         // $insertQ = mysqli_query($config, "INSERT INTO profiles (profile_name, profesion, description, photo) VALUES ('$profile_name', '$profesion', '$description', '$filename')");
@@ -84,7 +112,8 @@
 <form action="" method="post" enctype="multipart/form-data">
 <div class="mb-3">
         <label class="form-label">Photo</label>
-        <input type="file" class="form-control" name="photo" value="<?php echo isset($rowProfile["photo"]) ? $rowProfile["photo"] : "" ?>">
+        <input type="file" class="form-control" name="photo" value="">
+        <img src="uploads/<?php echo isset($rowProfile["photo"]) ? $rowProfile["photo"] : "" ?>" alt="" width="200">
     </div>
     <div class="mb-3">
         <label class="form-label">Judul</label>
@@ -92,7 +121,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Konten</label>
-        <textarea name="content" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["content"]) ? $rowProfile["content"] : "" ?></textarea>
+        <textarea id="summernote" name="content" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["content"]) ? $rowProfile["content"] : "" ?></textarea>
     </div>
     <div class="mb-3">
         <label class="form-label">Birthday</label>

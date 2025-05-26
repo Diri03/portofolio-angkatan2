@@ -89,7 +89,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="resume.html">Resume</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.php">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -138,7 +138,7 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="depan/assets/img/<?php echo $rowProfile["photo"] ?>" class="img-fluid" alt="">
+            <img src="admin/uploads/<?php echo $rowProfile["photo"]; ?>" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 content">
             <h2><?php echo isset($rowProfile["title"]) ? $rowProfile["title"] : "" ?></h2>
@@ -166,7 +166,7 @@
               </div>
             </div>
             <p class="py-3" style="text-align: justify;">
-              <?php echo isset($rowProfile["detail1"]) ? $rowProfile["detail1"] : "" ?>
+              <?php echo isset($rowProfile["detailTitle"]) ? $rowProfile["detailTitle"] : "" ?>
             </p>
           </div>
         </div>
