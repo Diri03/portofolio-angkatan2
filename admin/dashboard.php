@@ -1,6 +1,7 @@
 <?php 
     include "config/koneksi.php";
     session_start();
+    ob_start();
     $name = isset($_SESSION["NAME"]) ? $_SESSION["NAME"] : "";
     if (empty($name)) {
         header("location:index.php?access=failed");

@@ -1,3 +1,10 @@
+<?php 
+  include "admin/config/koneksi.php";
+
+  $queryHome = mysqli_query($config, "SELECT * FROM home");
+  $rowHome = mysqli_fetch_assoc($queryHome);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,13 +98,13 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
-      <img src="depan/assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <img src="admin/uploads/<?php echo $rowHome["photo"]; ?>" alt="" data-aos="fade-in">
 
       <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <h2>Kelly Adams</h2>
-            <p>I'm a professional illustrator from San Francisco</p>
+            <h2><?php echo $rowHome["name"]; ?></h2>
+            <p><?php echo $rowHome["description"]; ?></p>
             <a href="about.html" class="btn-get-started">About Me</a>
           </div>
         </div>

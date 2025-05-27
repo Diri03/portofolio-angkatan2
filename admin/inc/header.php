@@ -36,6 +36,9 @@
                         <a href="?page=fact" class="dropdown-item">Fact</a>
                     </li>
                     <li>
+                        <a href="?page=portofolio" class="dropdown-item">Portofolio</a>
+                    </li>
+                    <li>
                         <a href="?page=contact" class="dropdown-item">Contact</a>
                     </li>
                 </ul>
@@ -43,11 +46,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="?page=service">Services</a>
                 </li>
-                <?php 
-                      if (isset($_SESSION["LEVEL"]) && $_SESSION["LEVEL"] == 1) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=user">User</a>
-                        </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=manage-home">Manage Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Page 2
+                    </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="?page=manage-summary" class="dropdown-item">Summary</a>
+                    </li>
+                    <li>
+                        <a href="?page=manage-education" class="dropdown-item">Education</a>
+                    </li>
+                    <li>
+                        <a href="?page=manage-experience" class="dropdown-item">Experience</a>
+                    </li>
+                </ul>
+                </li>
+                <?php if (isset($_SESSION["LEVEL"]) && $_SESSION["LEVEL"] == 1) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=user">User</a>
+                    </li>
                 <?php } ?>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

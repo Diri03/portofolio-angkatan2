@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Bulan Mei 2025 pada 10.15
+-- Waktu pembuatan: 27 Bulan Mei 2025 pada 10.41
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -54,6 +54,26 @@ INSERT INTO `about` (`id`, `content`, `title`, `birthday`, `website`, `phone`, `
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'app'),
+(2, 'product'),
+(3, 'branding');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `contacts`
 --
 
@@ -79,6 +99,50 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `created_at
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `education`
+--
+
+CREATE TABLE `education` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `year` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `education`
+--
+
+INSERT INTO `education` (`id`, `title`, `year`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Master of Fine Arts & Graphic Design', '2015 - 2016', '<p style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\"><em>Rochester Institute of Technology, Rochester, NY</em></p><p style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>', '2025-05-27 06:08:29', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `experience`
+--
+
+CREATE TABLE `experience` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `year` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `experience`
+--
+
+INSERT INTO `experience` (`id`, `title`, `year`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Senior graphic design specialist', '2019 - Present', '<p style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\"><em>Experion, New York, NY</em></p><ul><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.</li><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li></ul>', '2025-05-27 06:10:51', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `fakta`
 --
 
@@ -99,6 +163,28 @@ INSERT INTO `fakta` (`id`, `name`, `count`, `created_at`, `updated_at`) VALUES
 (2, 'Projects', 789, '2025-05-26 01:09:16', NULL),
 (3, 'Hours Of Support', 300, '2025-05-26 01:09:22', NULL),
 (4, 'Workers', 47, '2025-05-26 01:09:36', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `home`
+--
+
+CREATE TABLE `home` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `photo` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `home`
+--
+
+INSERT INTO `home` (`id`, `name`, `description`, `photo`, `created_at`, `updated_at`) VALUES
+(1, 'Diriansyah', '<p>Lulusan dari Universitas Negeri Jakarta jurusan Matematika 2017</p>', '68350cbf4f4a1_books-1.jpg', '2025-05-27 00:52:15', '2025-05-27 04:01:59');
 
 -- --------------------------------------------------------
 
@@ -148,6 +234,29 @@ INSERT INTO `levels` (`id`, `name_level`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `portofolio`
+--
+
+CREATE TABLE `portofolio` (
+  `id` int(11) NOT NULL,
+  `id_category` int(11) DEFAULT NULL,
+  `photo` varchar(100) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `portofolio`
+--
+
+INSERT INTO `portofolio` (`id`, `id_category`, `photo`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, '68357a2f0d688_app-1.jpg', 'App 1', 'asdasdasdasdasda', '2025-05-27 08:39:11', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `profiles`
 --
 
@@ -184,6 +293,27 @@ INSERT INTO `services` (`id`, `icon`, `title`, `content`, `created_at`, `updated
 (3, 'bounding-box-circles', 'Bounding Box Circles', 'sdfsdfsdfsdfsdfsdf', '2025-05-26 08:08:56', NULL),
 (4, 'calendar4-week', 'Kalender', 'dsadasdasdasd', '2025-05-26 08:09:28', NULL),
 (5, 'chat-square-text', 'Chat', 'asdasdasdasdasdas', '2025-05-26 08:09:51', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `summary`
+--
+
+CREATE TABLE `summary` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `summary`
+--
+
+INSERT INTO `summary` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Diriansyah', '<p><em style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em><span style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\"><br></span></p><ul><li><span style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Portland par 127,Orlando, FL</span></li><li>(123) 456-7891</li><li>alice.barkley@example.com</li></ul>', '2025-05-27 05:53:28', NULL);
 
 -- --------------------------------------------------------
 
@@ -237,7 +367,10 @@ INSERT INTO `users` (`id`, `id_level`, `name`, `email`, `password`, `created_at`
 (26, 2, 'Diriansyah', 'diriansyah15@gmail.com', 'f865b53623b121fd34ee5426c792e5c33af8c227', '2025-05-22 00:35:55', '2025-05-23 01:10:10'),
 (34, 1, 'admin123', 'admin123@gmail.com', 'f865b53623b121fd34ee5426c792e5c33af8c227', '2025-05-22 06:42:24', '2025-05-23 02:48:54'),
 (35, NULL, 'Siddi', 'siddiq@gmail.com', '9ff4d52cb05f672d5cd54a092757502eb93a0c63', '2025-05-23 03:18:44', '2025-05-23 03:25:27'),
-(36, NULL, 'William', 'wili123@gmail.com', 'd1925b49089c332f686cc5e332342ad723f5989f', '2025-05-24 04:27:30', NULL);
+(39, 2, 'admin1234', 'admin1234@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2025-05-27 03:21:49', NULL),
+(40, 1, 'Siddiqqq', 'siddiq123@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', '2025-05-27 03:23:40', NULL),
+(41, 2, 'sadsad', 'asd@gmail.com', 'f10e2821bbbea527ea02200352313bc059445190', '2025-05-27 03:43:44', NULL),
+(42, 2, 'q', 'q@q', '22ea1c649c82946aa6e479e1ffd321e4a318b1b0', '2025-05-27 04:02:29', NULL);
 
 --
 -- Indexes for dumped tables
@@ -250,15 +383,39 @@ ALTER TABLE `about`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `education`
+--
+ALTER TABLE `education`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `experience`
+--
+ALTER TABLE `experience`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `fakta`
 --
 ALTER TABLE `fakta`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `home`
+--
+ALTER TABLE `home`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -274,6 +431,13 @@ ALTER TABLE `levels`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `portofolio`
+--
+ALTER TABLE `portofolio`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id_to_id_category` (`id_category`);
+
+--
 -- Indeks untuk tabel `profiles`
 --
 ALTER TABLE `profiles`
@@ -283,6 +447,12 @@ ALTER TABLE `profiles`
 -- Indeks untuk tabel `services`
 --
 ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `summary`
+--
+ALTER TABLE `summary`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -309,16 +479,40 @@ ALTER TABLE `about`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT untuk tabel `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT untuk tabel `education`
+--
+ALTER TABLE `education`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `experience`
+--
+ALTER TABLE `experience`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `fakta`
 --
 ALTER TABLE `fakta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `home`
+--
+ALTER TABLE `home`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `kemampuan`
@@ -333,6 +527,12 @@ ALTER TABLE `levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT untuk tabel `portofolio`
+--
+ALTER TABLE `portofolio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `profiles`
 --
 ALTER TABLE `profiles`
@@ -345,6 +545,12 @@ ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT untuk tabel `summary`
+--
+ALTER TABLE `summary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `testimoni`
 --
 ALTER TABLE `testimoni`
@@ -354,11 +560,17 @@ ALTER TABLE `testimoni`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `portofolio`
+--
+ALTER TABLE `portofolio`
+  ADD CONSTRAINT `category_id_to_id_category` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `users`

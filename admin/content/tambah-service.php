@@ -16,7 +16,7 @@
     $rowEdit = mysqli_fetch_assoc($queryEdit);
 
     if (isset($_GET["edit"])) {
-        $nilaiLogo = $rowEdit["logo"];
+        $nilaiLogo = $rowEdit["icon"];
         $nilaiTitle = $rowEdit["title"];
         $nilaiContent = $rowEdit["content"];
     } else {
@@ -26,7 +26,7 @@
     }
 
     if (isset($_POST["ubah"])) {
-        $logo = $_POST["logo"];
+        $logo = $_POST["icon"];
         $title = $_POST["title"];
         $content = $_POST["content"];
 

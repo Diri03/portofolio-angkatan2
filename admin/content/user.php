@@ -1,5 +1,14 @@
 <?php 
-    $query = mysqli_query($config, "SELECT * FROM users ORDER BY id DESC");
+    if ($_SESSION["LEVEL"] != 1) {
+        // echo "<h1>Anda tidak berhak ke halaman ini!!</h1>";
+        // echo "<a href='dashboard.php' class='btn btn-warning'>Kembali</a>";
+        // die;
+        header("location:dashboard.php?access=failed");
+    }
+
+    $query = mysqli_query($config, "SELECT levels.name_level, users.* FROM users 
+    LEFT JOIN levels ON levels.id = users.id_level
+    ORDER BY users.id DESC");
     $row = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
     if (isset($_GET["delete"])) {
@@ -18,6 +27,7 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Nama Level</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th></th>
@@ -28,6 +38,7 @@
                 <?php foreach ($row as $key => $data):?>     
                     <tr>
                         <td><?php echo $key + 1; ?></td>
+                        <td><?php echo $data["name_level"]; ?></td>
                         <td><?php echo $data["name"]; ?></td>
                         <td><?php echo $data["email"]; ?></td>
                         <td>

@@ -1,8 +1,14 @@
 <?php 
-  include "admin/config/koneksi.php";
+    include "admin/config/koneksi.php";
 
-  $queryService = mysqli_query($config, "SELECT * FROM services");
-  $rows = mysqli_fetch_all($queryService, MYSQLI_ASSOC);
+    $querySummary = mysqli_query($config, "SELECT * FROM summary ORDER BY ID DESC");
+    $rowSummary = mysqli_fetch_assoc($querySummary);
+
+    $queryEducation = mysqli_query($config, "SELECT * FROM education ORDER BY ID DESC");
+    $rowEducation = mysqli_fetch_all($queryEducation, MYSQLI_ASSOC);
+
+    $queryExperience = mysqli_query($config, "SELECT * FROM experience ORDER BY ID DESC");
+    $rowExperience = mysqli_fetch_all($queryExperience, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +17,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Services - Kelly Bootstrap Template</title>
+  <title>Resume - Kelly Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -43,7 +49,7 @@
   ======================================================== -->
 </head>
 
-<body class="services-page">
+<body class="resume-page">
 
   <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
@@ -58,8 +64,8 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="resume.html" class="active">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -95,43 +101,60 @@
 
   <main class="main">
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p> </p>
+        <h2>Resume</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="row">
 
-          <?php foreach ($rows as $key => $data) { ?>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php for ($i=100; $i <= count($rows); $i+=100) { 
-              echo $i;
-            } ?>">
-              <div class="service-item item-cyan position-relative">
-                <div class="icon">
-                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                  </svg>
-                  <i class="bi bi-<?php echo $data["icon"]; ?>"></i>
-                </div>
-                <a href="#" class="stretched-link">
-                  <h3><?php echo $data["title"]; ?></h3>
-                </a>
-                <p><?php echo $data["content"]; ?></p>
-              </div>
-            </div><!-- End Service Item -->
-          <?php } ?>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Sumary</h3>
+
+            <div class="resume-item pb-0">
+              <h4><?php echo $rowSummary["name"]; ?></h4>
+              <p><?php echo $rowSummary["description"]; ?></p>
+              <!-- <ul>
+                <li>Portland par 127,Orlando, FL</li>
+                <li>(123) 456-7891</li>
+                <li>alice.barkley@example.com</li>
+              </ul> -->
+            </div><!-- End Resume Item -->
+
+            <h3 class="resume-title">Education</h3>
+            <?php foreach ($rowEducation as $key => $data) { ?>
+                <div class="resume-item">
+                    <h4><?php echo $data["title"]; ?></h4>
+                    <h5><?php echo $data["year"]; ?></h5>
+                    <p><?php echo $data["description"]; ?></p>
+                </div><!-- Edn Resume Item -->
+            <?php } ?>
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+            <?php foreach ($rowExperience as $key => $value) { ?>
+                <div class="resume-item">
+                  <h4><?php echo $value["title"]; ?></h4>
+                  <h5><?php echo $value["year"]; ?></h5>
+                  <p><?php echo $value["description"]; ?></p>
+                </div><!-- Edn Resume Item -->
+            <?php } ?>
+
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Services Section -->
+    </section><!-- /Resume Section -->
 
   </main>
 
