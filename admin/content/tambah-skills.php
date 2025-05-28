@@ -49,7 +49,7 @@
             <label for="">Rating *</label>
         </div>
         <div class="col-sm-10">
-            <input required type="number" name="bar" class="form-control" placeholder="Masukkan Rating Anda" value="<?php echo $nilaiBar; ?>">
+            <input required type="number" name="bar" min="0" max="100" class="form-control" placeholder="Masukkan Rating Anda" value="<?php echo $nilaiBar; ?>">
         </div>
     </div>
     <div class="mb-3 row" align="center">

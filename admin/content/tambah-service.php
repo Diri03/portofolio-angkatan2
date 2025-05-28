@@ -26,7 +26,7 @@
     }
 
     if (isset($_POST["ubah"])) {
-        $logo = $_POST["icon"];
+        $logo = $_POST["logo"];
         $title = $_POST["title"];
         $content = $_POST["content"];
 

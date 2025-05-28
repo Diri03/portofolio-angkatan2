@@ -20,7 +20,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Page
+                        About
                     </a>
                 <ul class="dropdown-menu">
                     <li>
@@ -51,19 +51,32 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Page 2
+                        Ditel Portofolio
                     </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="?page=manage-summary" class="dropdown-item">Summary</a>
-                    </li>
-                    <li>
-                        <a href="?page=manage-education" class="dropdown-item">Education</a>
-                    </li>
-                    <li>
-                        <a href="?page=manage-experience" class="dropdown-item">Experience</a>
-                    </li>
-                </ul>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="?page=manage-project" class="dropdown-item">Tentang Projek</a>
+                        </li>
+                        <li>
+                            <a href="?page=picture_project" class="dropdown-item">Gambar Projek</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Resume
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="?page=manage-summary" class="dropdown-item">Summary</a>
+                        </li>
+                        <li>
+                            <a href="?page=manage-education" class="dropdown-item">Education</a>
+                        </li>
+                        <li>
+                            <a href="?page=manage-experience" class="dropdown-item">Experience</a>
+                        </li>
+                    </ul>
                 </li>
                 <?php if (isset($_SESSION["LEVEL"]) && $_SESSION["LEVEL"] == 1) { ?>
                     <li class="nav-item">

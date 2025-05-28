@@ -71,8 +71,8 @@
                 }
             }else {
                 move_uploaded_file($tmp_name, $filepath);
-                $insertQ = mysqli_query($config, "INSERT INTO about (content, title, birthday, website, phone, city, degree, email, freelance, photo, detailTitle) VALUES 
-                ('$content', '$title', '$birthday', '$website', '$phone', '$city', '$degree', '$email', '$freelance', '$filename', '$detailTitle')");
+                $insertQ = mysqli_query($config, "INSERT INTO about (content, title, birthday, website, phone, city, degree, email, freelance, detailTitle) VALUES 
+                ('$content', '$title', '$birthday', '$website', '$phone', '$city', '$degree', '$email', '$freelance', '$detailTitle')");
             
                 if ($insertQ) {
                     header("location:?page=manage-profile&tambah=berhasil");
@@ -153,7 +153,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Detail Title</label>
-        <textarea name="detailTitle" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["detailTitle"]) ? $rowProfile["detailTitle"] : "" ?></textarea>
+        <textarea id="summernote" name="detailTitle" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["detailTitle"]) ? $rowProfile["detailTitle"] : "" ?></textarea>
     </div>
     <div class="mb-3">
         <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>

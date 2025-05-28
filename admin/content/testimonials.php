@@ -30,7 +30,7 @@
                 <?php foreach ($row as $key => $data):?> 
                     <tr>
                         <td><?php echo $key + 1; ?></td>
-                        <td><img src="../depan/assets/img/testimonials/<?php echo $data["photo"] ?>" alt="" width="100"></td>
+                        <td><img src="../admin/uploads/<?php echo $data["photo"]; ?>" alt="" width="100"></td>
                         <td><?php echo $data["name"]; ?></td>
                         <td><?php echo $data["profesion"]; ?></td>
                         <td><?php echo $data["rating"]; ?></td>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Bulan Mei 2025 pada 10.41
+-- Waktu pembuatan: 28 Bulan Mei 2025 pada 04.48
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -49,7 +49,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `content`, `title`, `birthday`, `website`, `phone`, `city`, `degree`, `email`, `freelance`, `photo`, `detailTitle`, `created_at`, `updated_at`) VALUES
-(7, '<p>sadasdasd</p>', 'asdasdasd', '2025-05-26', 'menu-github-io.vercel.app', '+6282297789349', 'Jakarta Pusat', 'S1', 'admin123@gmail.com', 'Available', '6833ed2ee5b6a_hero-bg.jpg', 'sadasdasdas', '2025-05-26 04:25:18', NULL);
+(8, '<p>Saya adalah lulusan mahasiswa UNJ jurusan matematika 2017. Saya memiliki ketertarikan di bidang IT. Bahasa pemrograman yang saya kuasai adalah bahasa Python.</p>', 'Web Programming', '1998-11-24', 'https://menu-github-io.vercel.app/', '+6287831714546', 'Jakarta Pusat', 'Sarjana', 'diriansyah03@gmail.com', 'Terbuka', '683625098e5e2_kucing.jpeg', 'asssfdsjfnknsdjkfnkd', '2025-05-27 20:47:41', '2025-05-27 20:48:47');
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,7 @@ CREATE TABLE `home` (
 --
 
 INSERT INTO `home` (`id`, `name`, `description`, `photo`, `created_at`, `updated_at`) VALUES
-(1, 'Diriansyah', '<p>Lulusan dari Universitas Negeri Jakarta jurusan Matematika 2017</p>', '68350cbf4f4a1_books-1.jpg', '2025-05-27 00:52:15', '2025-05-27 04:01:59');
+(2, 'Diriansyah', '<p>Lulusan dari Universitas Negeri Jakarta jurusan Matematika 2017</p>', '6836182adc6f5_books-1.jpg', '2025-05-27 19:53:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -210,7 +210,8 @@ INSERT INTO `kemampuan` (`id`, `skill`, `bar`, `created_at`, `updated_at`) VALUE
 (3, 'Python', 90, '2025-05-26 01:07:15', NULL),
 (4, 'JavaScript', 70, '2025-05-26 01:07:38', NULL),
 (5, 'PHP', 70, '2025-05-26 01:07:51', NULL),
-(6, 'Laravel', 30, '2025-05-26 01:08:01', NULL);
+(6, 'Laravel', 30, '2025-05-26 01:08:01', NULL),
+(7, 'Java', 40, '2025-05-27 20:17:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -234,6 +235,28 @@ INSERT INTO `levels` (`id`, `name_level`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `picture_project`
+--
+
+CREATE TABLE `picture_project` (
+  `id` int(11) NOT NULL,
+  `photo` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `picture_project`
+--
+
+INSERT INTO `picture_project` (`id`, `photo`, `created_at`, `updated_at`) VALUES
+(1, '6836070211458_logo.png', '2025-05-27 18:40:02', NULL),
+(2, '6836070e0747b_apple-touch-icon.png', '2025-05-27 18:40:14', NULL),
+(3, '6836072b7c57b_masonry-portfolio-7.jpg', '2025-05-27 18:40:43', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `portofolio`
 --
 
@@ -252,7 +275,15 @@ CREATE TABLE `portofolio` (
 --
 
 INSERT INTO `portofolio` (`id`, `id_category`, `photo`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, '68357a2f0d688_app-1.jpg', 'App 1', 'asdasdasdasdasda', '2025-05-27 08:39:11', NULL);
+(1, 1, '68357a2f0d688_app-1.jpg', 'App 1', 'asdasdasdasdasda', '2025-05-27 08:39:11', NULL),
+(2, 1, '683598e0562c6_app2.jpg', 'app 2', 'adasdasdasdasdasdsa', '2025-05-27 10:50:08', NULL),
+(3, 1, '683598f91a304_app3.jpg', 'app 3', 'adadasdasdasdas', '2025-05-27 10:50:33', NULL),
+(4, 2, '6835991bf2b3c_product1.png', 'product1', 'adasdasdasdas', '2025-05-27 10:51:07', NULL),
+(5, 2, '6835993419fb2_product2.jpg', 'product2', 'sadasdasdas', '2025-05-27 10:51:32', NULL),
+(6, 2, '68359967c0849_product3.png', 'product 3', 'asdasdasdasdasdasd', '2025-05-27 10:51:49', '2025-05-27 10:52:23'),
+(7, 3, '68359987b19af_branding1.jpg', 'branding1', 'adasdasdasdasdas', '2025-05-27 10:52:55', NULL),
+(8, 3, '6835999feea84_branding2.jpg', 'branding 2', 'asdasdasdad', '2025-05-27 10:53:19', NULL),
+(9, 3, '68361f441e859_branding3.jpg', 'branding3', 'adadasdasdasdd', '2025-05-27 10:53:50', '2025-05-27 20:23:32');
 
 -- --------------------------------------------------------
 
@@ -267,6 +298,31 @@ CREATE TABLE `profiles` (
   `description` text DEFAULT NULL,
   `photo` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `client` varchar(50) NOT NULL,
+  `date` date NOT NULL,
+  `url` varchar(50) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `project`
+--
+
+INSERT INTO `project` (`id`, `category`, `client`, `date`, `url`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Menu Desain Web', 'Restoran Bintang 10', '2025-05-27', 'menu-github-io.vercell.app', 'Menu DIRI', '<p>asdsadasdasdasd</p>', '2025-05-27 12:33:14', '2025-05-27 18:56:48');
 
 -- --------------------------------------------------------
 
@@ -337,11 +393,11 @@ CREATE TABLE `testimoni` (
 --
 
 INSERT INTO `testimoni` (`id`, `photo`, `name`, `profesion`, `rating`, `quote`, `created_at`, `updated_at`) VALUES
-(4, 'kucing1.jpeg', 'Diriansyah', 'Web Programming', 5, 'swdesadsad', '2025-05-24 06:17:04', '2025-05-26 01:11:44'),
-(5, 'kucing2.jpeg', 'Siddiq', 'Web Programming', 5, 'gfdgdfgdfgdf', '2025-05-26 01:12:02', NULL),
-(6, 'kucing3.jpeg', 'Raymond', 'Data Science', 5, 'asdfasfsdfsdf', '2025-05-26 01:12:22', NULL),
-(7, 'kucing4.jpeg', 'William', 'IT Consultant', 5, 'asdfasdasdas', '2025-05-26 01:12:43', NULL),
-(8, 'kucing5.jpeg', 'Agra', 'Data Analyst', 5, 'asedfasdfsdfsd', '2025-05-26 01:13:11', NULL);
+(4, '6836150b212ea_kucing1.jpeg', 'Diriansyah', 'Web Programming', 5, 'swdesadsad', '2025-05-24 06:17:04', '2025-05-27 19:39:55'),
+(5, '683615175f7bc_kucing2.jpeg', 'Siddiq', 'Web Programming', 5, 'gfdgdfgdfgdf', '2025-05-26 01:12:02', '2025-05-27 19:40:07'),
+(6, '6836152758083_kucing3.jpeg', 'Raymond', 'Data Science', 5, 'asdfasfsdfsdf', '2025-05-26 01:12:22', '2025-05-27 19:40:23'),
+(7, '6836153216875_kucing4.jpeg', 'William', 'IT Consultant', 5, 'asdfasdasdas', '2025-05-26 01:12:43', '2025-05-27 19:40:34'),
+(8, '6836153b46948_kucing5.jpeg', 'Agra', 'Data Analyst', 5, 'asedfasdfsdfsd', '2025-05-26 01:13:11', '2025-05-27 19:40:43');
 
 -- --------------------------------------------------------
 
@@ -366,11 +422,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `id_level`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
 (26, 2, 'Diriansyah', 'diriansyah15@gmail.com', 'f865b53623b121fd34ee5426c792e5c33af8c227', '2025-05-22 00:35:55', '2025-05-23 01:10:10'),
 (34, 1, 'admin123', 'admin123@gmail.com', 'f865b53623b121fd34ee5426c792e5c33af8c227', '2025-05-22 06:42:24', '2025-05-23 02:48:54'),
-(35, NULL, 'Siddi', 'siddiq@gmail.com', '9ff4d52cb05f672d5cd54a092757502eb93a0c63', '2025-05-23 03:18:44', '2025-05-23 03:25:27'),
-(39, 2, 'admin1234', 'admin1234@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2025-05-27 03:21:49', NULL),
-(40, 1, 'Siddiqqq', 'siddiq123@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', '2025-05-27 03:23:40', NULL),
 (41, 2, 'sadsad', 'asd@gmail.com', 'f10e2821bbbea527ea02200352313bc059445190', '2025-05-27 03:43:44', NULL),
-(42, 2, 'q', 'q@q', '22ea1c649c82946aa6e479e1ffd321e4a318b1b0', '2025-05-27 04:02:29', NULL);
+(42, 2, 'q', 'q@q', '22ea1c649c82946aa6e479e1ffd321e4a318b1b0', '2025-05-27 04:02:29', NULL),
+(43, 1, 'tes1', 'tes1@gmail.com', 'd1c056a983786a38ca76a05cda240c7b86d77136', '2025-05-27 19:50:16', '2025-05-27 19:50:29');
 
 --
 -- Indexes for dumped tables
@@ -431,6 +485,12 @@ ALTER TABLE `levels`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `picture_project`
+--
+ALTER TABLE `picture_project`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `portofolio`
 --
 ALTER TABLE `portofolio`
@@ -441,6 +501,12 @@ ALTER TABLE `portofolio`
 -- Indeks untuk tabel `profiles`
 --
 ALTER TABLE `profiles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `project`
+--
+ALTER TABLE `project`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -476,7 +542,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `category`
@@ -506,19 +572,19 @@ ALTER TABLE `experience`
 -- AUTO_INCREMENT untuk tabel `fakta`
 --
 ALTER TABLE `fakta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `home`
 --
 ALTER TABLE `home`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `kemampuan`
 --
 ALTER TABLE `kemampuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `levels`
@@ -527,10 +593,16 @@ ALTER TABLE `levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT untuk tabel `picture_project`
+--
+ALTER TABLE `picture_project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `portofolio`
 --
 ALTER TABLE `portofolio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `profiles`
@@ -539,10 +611,16 @@ ALTER TABLE `profiles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT untuk tabel `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `summary`
@@ -554,13 +632,13 @@ ALTER TABLE `summary`
 -- AUTO_INCREMENT untuk tabel `testimoni`
 --
 ALTER TABLE `testimoni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

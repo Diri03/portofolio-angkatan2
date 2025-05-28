@@ -22,7 +22,8 @@
                     <th>No</th>
                     <th>Nama Kategori</th>
                     <th>photo</th>
-                    <th>kategori</th>
+                    <th>Judul</th>
+                    <th>Deskripsi</th>
                     <th></th>
                 </tr>
             </thead>
@@ -32,8 +33,9 @@
                     <tr>
                         <td><?php echo $key + 1; ?></td>
                         <td><?php echo $data["name"]; ?></td>
-                        <td><?php echo $data["photo"]; ?></td>
-                        <td><?php echo $data["category"]; ?></td>
+                        <td><img src="../admin/uploads/<?php echo $data["photo"] ?>" alt="" width="100"></td>
+                        <td><?php echo $data["title"]; ?></td>
+                        <td><?php echo $data["description"]; ?></td>
                         <td>
                             <a href="?page=tambah-portofolio&edit=<?php echo $data["id"]; ?>" class="btn btn-success btn-sm">Edit</a>
                             <a onclick="return confirm('Are you sure?')" href="?page=portofolio&delete=<?php echo $data["id"]; ?>" class="btn btn-danger btn-sm">Delete</a>

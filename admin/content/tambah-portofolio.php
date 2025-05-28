@@ -70,7 +70,7 @@
         </div>
         <div class="col-sm-10">
             <input type="file" class="form-control" name="photo" value="">
-            <img src="uploads/<?php echo isset($rowProfile["photo"]) ? $rowProfile["photo"] : "" ?>" alt="" width="200">
+            <img src="uploads/<?php echo isset($rowEdit["photo"]) ? $rowEdit["photo"] : "" ?>" alt="" width="200">
         </div>
     </div>
     <div class="mb-3 row">

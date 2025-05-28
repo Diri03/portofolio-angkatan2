@@ -48,7 +48,7 @@
             <label for="">Jumlah *</label>
         </div>
         <div class="col-sm-10">
-            <input required type="number" name="count" class="form-control" placeholder="Masukkan Jumlahnya" value="<?php echo $nilaiCount; ?>">
+            <input required type="number" name="count" min="0" class="form-control" placeholder="Masukkan Jumlahnya" value="<?php echo $nilaiCount; ?>">
         </div>
     </div>
     <div class="mb-3 row" align="center">

@@ -6,14 +6,18 @@
         $rating = $_POST["rating"];
         $quote = $_POST["quote"];
         $photo = $_FILES["photo"]["name"];
-        $size = $_FILES["photo"]["size"];
+        $tmp_name = $_FILES["photo"]["tmp_name"];
+        $filename = uniqid() . "_" . basename($photo);
+        $filepath = "uploads/" . $filename;
+        unlink("uploads/" . $filename);
+        move_uploaded_file($tmp_name, $filepath);
 
         $ekstensi = ["png", "jpg", "jpeg"];
         $eks = pathinfo($photo, PATHINFO_EXTENSION);
         if (!in_array($eks, $ekstensi)) {
             $error[] = "Mohon maaf, ekstensi file tidak ditemukan";
         }else{
-            $query = mysqli_query($config, "INSERT INTO testimoni(photo, name, profesion, rating, quote) VALUES('$photo', '$name', '$profesi', '$rating', '$quote')");
+            $query = mysqli_query($config, "INSERT INTO testimoni(photo, name, profesion, rating, quote) VALUES('$filename', '$name', '$profesi', '$rating', '$quote')");
             if ($query) {
                 header("location:?page=testimonials&tambah=berhasil");
             }
@@ -44,7 +48,12 @@
         $rating = $_POST["rating"];
         $quote = $_POST["quote"];
         $photo = $_FILES["photo"]["name"];
-        $queryUpdate = mysqli_query($config, "UPDATE testimoni SET photo='$photo', name='$name', profesion='$profesi', rating='$rating', quote='$quote' WHERE id='$id_user'");
+        $tmp_name = $_FILES["photo"]["tmp_name"];
+        $filename = uniqid() . "_" . basename($photo);
+        $filepath = "uploads/" . $filename;
+        unlink("uploads/" . $filename);
+        move_uploaded_file($tmp_name, $filepath);
+        $queryUpdate = mysqli_query($config, "UPDATE testimoni SET photo='$filename', name='$name', profesion='$profesi', rating='$rating', quote='$quote' WHERE id='$id_user'");
         if ($queryUpdate) {
             header("location:?page=testimonials&ubah=berhasil");
         }
@@ -81,7 +90,7 @@
             <label for="">Rating <?php echo isset($_GET["edit"]) ? "" : "*"; ?></label>
         </div>
         <div class="col-sm-10">
-            <input required type="number" name="rating" class="form-control" placeholder="Masukkan Rating Anda" value="<?php echo $nilaiRating; ?>">
+            <input required type="number" name="rating" min="0" max="5" class="form-control" placeholder="Masukkan Rating Anda" value="<?php echo $nilaiRating; ?>">
         </div>
     </div>
     <div class="mb-3 row">

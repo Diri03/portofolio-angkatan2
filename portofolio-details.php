@@ -1,16 +1,11 @@
-<?php 
+<?php
     include "admin/config/koneksi.php";
 
-    $page = "resume";
+    $queryPicture = mysqli_query($config, "SELECT * FROM picture_project ORDER BY id DESC");
+    $rowPicture = mysqli_fetch_all($queryPicture, MYSQLI_ASSOC);
 
-    $querySummary = mysqli_query($config, "SELECT * FROM summary ORDER BY ID DESC");
-    $rowSummary = mysqli_fetch_assoc($querySummary);
-
-    $queryEducation = mysqli_query($config, "SELECT * FROM education ORDER BY ID DESC");
-    $rowEducation = mysqli_fetch_all($queryEducation, MYSQLI_ASSOC);
-
-    $queryExperience = mysqli_query($config, "SELECT * FROM experience ORDER BY ID DESC");
-    $rowExperience = mysqli_fetch_all($queryExperience, MYSQLI_ASSOC);
+    $queryProject = mysqli_query($config, "SELECT * FROM project ORDER BY id DESC");
+    $rowProject = mysqli_fetch_assoc($queryProject);
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +14,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Resume - Kelly Bootstrap Template</title>
+  <title>Portfolio Details - Kelly Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -51,66 +46,79 @@
   ======================================================== -->
 </head>
 
-<body class="resume-page">
+<body class="portfolio-details-page">
 
   <?php include "inc/header.php"; ?>
 
   <main class="main">
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
+        <h2>Portfolio Details</h2>
         <p> </p>
       </div><!-- End Section Title -->
 
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row">
+        <div class="row gy-4">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
 
-            <div class="resume-item pb-0">
-              <h4><?php echo $rowSummary["name"]; ?></h4>
-              <p><?php echo $rowSummary["description"]; ?></p>
-              <!-- <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
-              </ul> -->
-            </div><!-- End Resume Item -->
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
 
-            <h3 class="resume-title">Education</h3>
-            <?php foreach ($rowEducation as $key => $data) { ?>
-                <div class="resume-item">
-                    <h4><?php echo $data["title"]; ?></h4>
-                    <h5><?php echo $data["year"]; ?></h5>
-                    <p><?php echo $data["description"]; ?></p>
-                </div><!-- Edn Resume Item -->
-            <?php } ?>
+              <div class="swiper-wrapper align-items-center">
 
+                <?php foreach ($rowPicture as $key => $value) { ?>
+                    <div class="swiper-slide">
+                      <img src="admin/uploads/<?php echo $value["photo"]; ?>" alt="" width="60%">
+                    </div>
+                <?php } ?>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
-            <?php foreach ($rowExperience as $key => $value) { ?>
-                <div class="resume-item">
-                  <h4><?php echo $value["title"]; ?></h4>
-                  <h5><?php echo $value["year"]; ?></h5>
-                  <p><?php echo $value["description"]; ?></p>
-                </div><!-- Edn Resume Item -->
-            <?php } ?>
-
+          <div class="col-lg-4">
+            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: <?php echo $rowProject["category"]; ?></li>
+                <li><strong>Client</strong>: <?php echo $rowProject["client"]; ?></li>
+                <li><strong>Project date</strong>: <?php echo isset($rowProject["date"]) ? date("d F Y", strtotime($rowProject["date"])) : "" ?></li>
+                <li><strong>Project URL</strong>: <a href=""><?php echo $rowProject["url"]; ?></a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+              <h2><?php echo $rowProject["title"]; ?></h2>
+              <p>
+                <?php echo $rowProject["description"]; ?>
+              </p>
+            </div>
           </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Resume Section -->
+    </section><!-- /Portfolio Details Section -->
 
   </main>
 
