@@ -36,7 +36,7 @@
 <form action="" method="post">
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Fakta *</label>
+            <label for="">Fakta <span class="text-danger">*</span></label>
             
         </div>
         <div class="col-sm-10">
@@ -45,7 +45,7 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Jumlah *</label>
+            <label for="">Jumlah <span class="text-danger">*</span></label>
         </div>
         <div class="col-sm-10">
             <input required type="number" name="count" min="0" class="form-control" placeholder="Masukkan Jumlahnya" value="<?php echo $nilaiCount; ?>">

@@ -1,6 +1,4 @@
 <?php 
-    include "config/koneksi.php";
-
     if (isset($_POST["simpan"])) {
         $title = $_POST["title"];
         $year = $_POST["year"];
@@ -23,34 +21,11 @@
                 header("location:?page=manage-education&tambah=berhasil");
             }
         }
-
-        // if ($photo["error"] == 0) {
-            
-        // }
-
-        // $insertQ = mysqli_query($config, "INSERT INTO profiles (profile_name, profesion, description, photo) VALUES ('$profile_name', '$profesion', '$description', '$filename')");
-        // if ($insertQ) {
-        //     header("location:dashboard.php?page=manage-profile");
-        // }
     }
 
 
     $selectProfile = mysqli_query($config, "SELECT * FROM education");
     $rowProfile = mysqli_fetch_assoc($selectProfile);
-    // if (isset($_GET["del"])) {
-    //     $isDel = $_GET["del"];
-    //     $selectPhoto = mysqli_query($config, "SELECT * FROM profiles WHERE id=$isDel");
-    //     $rowPhoto = mysqli_fetch_assoc($selectPhoto);
-    //     unlink("uploads/" . $rowPhoto["photo"]);
-    //     $delete = mysqli_query($config, "DELETE FROM profiles WHERE id=$isDel");
-    //     if ($delete) {
-    //         header("location:dashboard.php?page=manage-profile");
-    //     }
-
-    // }
-
-    // $selectProfile = mysqli_query($config, "SELECT * FROM profiles");
-    // $row = mysqli_fetch_assoc($selectProfile);
 ?>
 
 <form action="" method="post">

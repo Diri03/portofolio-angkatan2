@@ -1,18 +1,25 @@
 <?php 
     if (isset($_POST["simpan"])) {
         $id_category = $_POST["id_category"];
-        $photo = $_FILES["photo"]["name"];
-        $tmp_name = $_FILES["photo"]["tmp_name"];
-        $filename = uniqid() . "_" . basename($photo);
-        $filepath = "uploads/" . $filename;
-        unlink("uploads/" . $filename);
-        move_uploaded_file($tmp_name, $filepath);
         $title = $_POST["title"];
         $description = $_POST["description"];
-
-        $query = mysqli_query($config, "INSERT INTO portofolio(id_category, photo, title, description) VALUES('$id_category', '$filename', '$title', '$description')");
-        if ($query) {
-            header("location:?page=portofolio&tambah=berhasil");
+        $photo = $_FILES["photo"]["name"];
+        if (!empty($photo)) {
+            $tmp_name = $_FILES["photo"]["tmp_name"];
+            $filename = uniqid() . "_" . basename($photo);
+            $filepath = "uploads/" . $filename;
+            unlink("uploads/" . $filename);
+            move_uploaded_file($tmp_name, $filepath);
+    
+            $query = mysqli_query($config, "INSERT INTO portofolio(id_category, photo, title, description) VALUES('$id_category', '$filename', '$title', '$description')");
+            if ($query) {
+                header("location:?page=portofolio&tambah=berhasil");
+            }
+        }else {
+            $query = mysqli_query($config, "INSERT INTO portofolio(id_category, title, description) VALUES('$id_category', '$title', '$description')");
+            if ($query) {
+                header("location:?page=portofolio&tambah=berhasil");
+            }
         }
     }
 
@@ -31,18 +38,25 @@
 
     if (isset($_POST["ubah"])) {
         $id_category = $_POST["id_category"];
-        $photo = $_FILES["photo"]["name"];
-        $tmp_name = $_FILES["photo"]["tmp_name"];
-        $filename = uniqid() . "_" . basename($photo);
-        $filepath = "uploads/" . $filename;
-        unlink("uploads/" . $filename);
-        move_uploaded_file($tmp_name, $filepath);
         $title = $_POST["title"];
         $description = $_POST["description"];
-
-        $queryUpdate = mysqli_query($config, "UPDATE portofolio SET id_category='$id_category', photo='$filename', title='$title', description='$description' WHERE id='$id_user'");
-        if ($queryUpdate) {
-            header("location:?page=portofolio&ubah=berhasil");
+        $photo = $_FILES["photo"]["name"];
+        if (!empty($photo)) {
+            $tmp_name = $_FILES["photo"]["tmp_name"];
+            $filename = uniqid() . "_" . basename($photo);
+            $filepath = "uploads/" . $filename;
+            unlink("uploads/" . $filename);
+            move_uploaded_file($tmp_name, $filepath);
+    
+            $queryUpdate = mysqli_query($config, "UPDATE portofolio SET id_category='$id_category', photo='$filename', title='$title', description='$description' WHERE id='$id_user'");
+            if ($queryUpdate) {
+                header("location:?page=portofolio&ubah=berhasil");
+            }
+        }else {
+            $queryUpdate = mysqli_query($config, "UPDATE portofolio SET id_category='$id_category', title='$title', description='$description' WHERE id='$id_user'");
+            if ($queryUpdate) {
+                header("location:?page=portofolio&ubah=berhasil");
+            }
         }
     }
 
@@ -53,7 +67,7 @@
 <form action="" method="post" enctype="multipart/form-data">
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Nama Kategori</label>     
+            <label for="">Nama Kategori <span class="text-danger">*</span></label>     
         </div>
         <div class="col-sm-10">
             <select required name="id_category" id="" class="form-control">
@@ -75,7 +89,7 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Judul</label>
+            <label for="">Judul <span class="text-danger">*</span></label>
             
         </div>
         <div class="col-sm-10">
@@ -84,10 +98,10 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Deskripsi</label>
+            <label for="">Deskripsi <span class="text-danger">*</span></label>
         </div>
         <div class="col-sm-10">
-            <textarea class="form-control" name="description" id="" cols="30" rows="10"><?php echo $nilaiDescription; ?></textarea>
+            <textarea required class="form-control" name="description" id="summernote" cols="30" rows="10"><?php echo $nilaiDescription; ?></textarea>
         </div>
     </div>
     <div class="mb-3 row" align="center">

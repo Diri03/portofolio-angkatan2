@@ -1,8 +1,5 @@
 <?php 
     if ($_SESSION["LEVEL"] != 1) {
-        // echo "<h1>Anda tidak berhak ke halaman ini!!</h1>";
-        // echo "<a href='dashboard.php' class='btn btn-warning'>Kembali</a>";
-        // die;
         header("location:dashboard.php?access=failed");
     }
 
@@ -55,7 +52,7 @@
 <form action="" method="post">
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Nama Level *</label>        
+            <label for="">Nama Level <span class="text-danger">*</span></label>        
         </div>
         <div class="col-sm-10">
             <select required name="id_level" id="" class="form-control">
@@ -68,7 +65,7 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Nama *</label>
+            <label for="">Nama <span class="text-danger">*</span></label>
             
         </div>
         <div class="col-sm-10">
@@ -77,7 +74,7 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Email *</label>
+            <label for="">Email <span class="text-danger">*</span></label>
         </div>
         <div class="col-sm-10">
             <input required type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" value="<?php echo $nilaiEmail; ?>">
@@ -85,7 +82,7 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Password <?php echo isset($_GET["edit"]) ? "" : "*"; ?></label>
+            <label for="">Password <?php echo isset($_GET["edit"]) ? "" : "<span class='text-danger'>*</span>"; ?></label>
         </div>
         <div class="col-sm-10">
             <input <?php echo isset($_GET["edit"]) ? "" : "required"; ?> type="password" name="password" class="form-control" placeholder="Masukkan Password Anda">

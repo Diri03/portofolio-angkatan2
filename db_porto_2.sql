@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Bulan Mei 2025 pada 04.48
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Generation Time: May 30, 2025 at 03:41 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `about`
+-- Table structure for table `about`
 --
 
 CREATE TABLE `about` (
@@ -45,16 +45,16 @@ CREATE TABLE `about` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `about`
+-- Dumping data for table `about`
 --
 
 INSERT INTO `about` (`id`, `content`, `title`, `birthday`, `website`, `phone`, `city`, `degree`, `email`, `freelance`, `photo`, `detailTitle`, `created_at`, `updated_at`) VALUES
-(8, '<p>Saya adalah lulusan mahasiswa UNJ jurusan matematika 2017. Saya memiliki ketertarikan di bidang IT. Bahasa pemrograman yang saya kuasai adalah bahasa Python.</p>', 'Web Programming', '1998-11-24', 'https://menu-github-io.vercel.app/', '+6287831714546', 'Jakarta Pusat', 'Sarjana', 'diriansyah03@gmail.com', 'Terbuka', '683625098e5e2_kucing.jpeg', 'asssfdsjfnknsdjkfnkd', '2025-05-27 20:47:41', '2025-05-27 20:48:47');
+(9, '<p>Saya adalah lulusan mahasiswa UNJ jurusan matematika 2017. Saya memiliki ketertarikan di bidang IT. Bahasa pemrograman yang saya kuasai adalah bahasa Python.</p>', 'Web Programming', '1998-11-24', 'https://menu-github-io.vercel.app/', '+6282297789349', 'Jakarta Pusat', 'Sarjana', 'diriansyah03@gmail.com', 'Terbuka', '683987715cdf2_kucing.jpeg', 'Web programming adalah proses pembuatan dan pengembangan aplikasi atau situs web yang dapat diakses melalui internet menggunakan browser. Proses ini melibatkan pemrograman sisi klien (client-side) seperti HTML, CSS, dan JavaScript untuk tampilan dan interaksi pengguna, serta pemrograman sisi server (server-side) seperti PHP, Python, Ruby, atau Node.js untuk menangani logika aplikasi, basis data, dan komunikasi dengan server. Web programming memungkinkan pengembang menciptakan berbagai jenis layanan daring, mulai dari situs statis hingga aplikasi web interaktif dan kompleks.', '2025-05-30 10:21:46', '2025-05-30 10:24:49');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -63,7 +63,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `contacts`
+-- Table structure for table `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -88,7 +88,7 @@ CREATE TABLE `contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `contacts`
+-- Dumping data for table `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `created_at`, `updated_at`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `created_at
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `education`
+-- Table structure for table `education`
 --
 
 CREATE TABLE `education` (
@@ -112,16 +112,17 @@ CREATE TABLE `education` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `education`
+-- Dumping data for table `education`
 --
 
 INSERT INTO `education` (`id`, `title`, `year`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Master of Fine Arts & Graphic Design', '2015 - 2016', '<p style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\"><em>Rochester Institute of Technology, Rochester, NY</em></p><p style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>', '2025-05-27 06:08:29', NULL);
+(2, 'SMA Negeri 1 Jakarta', '2013 - 2016', 'Saya bersekolah di SMA Negeri 1 Jakarta jurusan IPA, saya mengikuti organisasi Rohis dan mata pelajaran yang saya kuasai salah satunya adalah Matematika', '2025-05-30 13:19:13', NULL),
+(3, 'Universitas Negeri Jakarta', '2017 - 2023', '<p>Saya kuliah di Universitas Negeri Jakarta. Saya salah satu siswa beasiswa bidikmisi di jurusan Matematika. Matakuliah yang saya kuasai di jurusan saya antara lain sebagai berikut:</p><ul><li>Kalkulus Integral</li><li>Kalkulus Diferensial</li><li>Algoritma Pemrograman</li><li>Struktur Data</li><li>Teori Bilangan</li></ul>', '2025-05-30 13:23:52', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `experience`
+-- Table structure for table `experience`
 --
 
 CREATE TABLE `experience` (
@@ -134,16 +135,17 @@ CREATE TABLE `experience` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `experience`
+-- Dumping data for table `experience`
 --
 
 INSERT INTO `experience` (`id`, `title`, `year`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Senior graphic design specialist', '2019 - Present', '<p style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\"><em>Experion, New York, NY</em></p><ul><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.</li><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li><li style=\"color: rgb(68, 68, 68); font-family: Roboto, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li></ul>', '2025-05-27 06:10:51', NULL);
+(2, 'Tutor Matematika dan IPA', '2016 - 2020', '<p>Saya mengajar di salah satu bimbel yaitu Bimbel Prestasi sebagai tutor Matematika dan IPA. Peran saya sebagai tutor di Bimbel prestasi adalah sebagai berikut:</p><ol><li>Membantu siswa untuk memahami konsep-konsep dasar Matematika</li><li>Bertanggung jawab untuk membuat materi pembelajaran yang sesuai dengan kebutuhan siswa</li><li>Memberikan latihan soal untuk mendalami materi yang telah dipelajari\r\n&nbsp;</li></ol>', '2025-05-30 13:30:24', NULL),
+(3, 'Sub-bagian Umum', 'Okt 2020 - Nov 2020', '<p>Saya mengambil mata kuliah PKL dan berkesempatan di KPPN Bekasi sebagai sub-bagian umum. Saya dipercaya melakukan tugas sebagai berikut:</p><ul><li>Menyusun Buku Kantor Pelayanan Perbendaharaan Negara (KPPN) 2020 dengan cepat dan efektif\r\nmenggunakan aplikasi Flip PDF Professional</li><li>Membuat formulasi baru Tunjangan Definitif, Tunjangan Tambahan, dan PPH</li><li>Menyusun Laporan Keuangan Kementrian Negara/Lembaga Triwulan III Tahun 2020&nbsp;</li></ul>', '2025-05-30 13:34:19', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fakta`
+-- Table structure for table `fakta`
 --
 
 CREATE TABLE `fakta` (
@@ -155,7 +157,7 @@ CREATE TABLE `fakta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `fakta`
+-- Dumping data for table `fakta`
 --
 
 INSERT INTO `fakta` (`id`, `name`, `count`, `created_at`, `updated_at`) VALUES
@@ -167,7 +169,7 @@ INSERT INTO `fakta` (`id`, `name`, `count`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `home`
+-- Table structure for table `home`
 --
 
 CREATE TABLE `home` (
@@ -180,16 +182,16 @@ CREATE TABLE `home` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `home`
+-- Dumping data for table `home`
 --
 
 INSERT INTO `home` (`id`, `name`, `description`, `photo`, `created_at`, `updated_at`) VALUES
-(2, 'Diriansyah', '<p>Lulusan dari Universitas Negeri Jakarta jurusan Matematika 2017</p>', '6836182adc6f5_books-1.jpg', '2025-05-27 19:53:14', NULL);
+(4, 'Diriansyah', '<p>Saya Lulusan di Universitas Negeri Jakarta Jurusan Matematika yang memiliki ketertarikan di bidang IT</p>', '683982f6f3dcb_books-1.jpg', '2025-05-30 10:00:09', '2025-05-30 10:05:43');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kemampuan`
+-- Table structure for table `kemampuan`
 --
 
 CREATE TABLE `kemampuan` (
@@ -201,7 +203,7 @@ CREATE TABLE `kemampuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kemampuan`
+-- Dumping data for table `kemampuan`
 --
 
 INSERT INTO `kemampuan` (`id`, `skill`, `bar`, `created_at`, `updated_at`) VALUES
@@ -216,7 +218,7 @@ INSERT INTO `kemampuan` (`id`, `skill`, `bar`, `created_at`, `updated_at`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `levels`
+-- Table structure for table `levels`
 --
 
 CREATE TABLE `levels` (
@@ -225,7 +227,7 @@ CREATE TABLE `levels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `levels`
+-- Dumping data for table `levels`
 --
 
 INSERT INTO `levels` (`id`, `name_level`) VALUES
@@ -235,7 +237,7 @@ INSERT INTO `levels` (`id`, `name_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `picture_project`
+-- Table structure for table `picture_project`
 --
 
 CREATE TABLE `picture_project` (
@@ -246,7 +248,7 @@ CREATE TABLE `picture_project` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `picture_project`
+-- Dumping data for table `picture_project`
 --
 
 INSERT INTO `picture_project` (`id`, `photo`, `created_at`, `updated_at`) VALUES
@@ -257,7 +259,7 @@ INSERT INTO `picture_project` (`id`, `photo`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `portofolio`
+-- Table structure for table `portofolio`
 --
 
 CREATE TABLE `portofolio` (
@@ -271,7 +273,7 @@ CREATE TABLE `portofolio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `portofolio`
+-- Dumping data for table `portofolio`
 --
 
 INSERT INTO `portofolio` (`id`, `id_category`, `photo`, `title`, `description`, `created_at`, `updated_at`) VALUES
@@ -283,12 +285,12 @@ INSERT INTO `portofolio` (`id`, `id_category`, `photo`, `title`, `description`, 
 (6, 2, '68359967c0849_product3.png', 'product 3', 'asdasdasdasdasdasd', '2025-05-27 10:51:49', '2025-05-27 10:52:23'),
 (7, 3, '68359987b19af_branding1.jpg', 'branding1', 'adasdasdasdasdas', '2025-05-27 10:52:55', NULL),
 (8, 3, '6835999feea84_branding2.jpg', 'branding 2', 'asdasdasdad', '2025-05-27 10:53:19', NULL),
-(9, 3, '68361f441e859_branding3.jpg', 'branding3', 'adadasdasdasdd', '2025-05-27 10:53:50', '2025-05-27 20:23:32');
+(9, 3, '6839305fb4172_branding3.jpg', 'branding33', 'adadasdasdasdd', '2025-05-27 10:53:50', '2025-05-30 04:13:19');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `profiles`
+-- Table structure for table `profiles`
 --
 
 CREATE TABLE `profiles` (
@@ -302,7 +304,7 @@ CREATE TABLE `profiles` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `project`
+-- Table structure for table `project`
 --
 
 CREATE TABLE `project` (
@@ -318,7 +320,7 @@ CREATE TABLE `project` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `project`
+-- Dumping data for table `project`
 --
 
 INSERT INTO `project` (`id`, `category`, `client`, `date`, `url`, `title`, `description`, `created_at`, `updated_at`) VALUES
@@ -327,7 +329,7 @@ INSERT INTO `project` (`id`, `category`, `client`, `date`, `url`, `title`, `desc
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `services`
+-- Table structure for table `services`
 --
 
 CREATE TABLE `services` (
@@ -340,7 +342,7 @@ CREATE TABLE `services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `services`
+-- Dumping data for table `services`
 --
 
 INSERT INTO `services` (`id`, `icon`, `title`, `content`, `created_at`, `updated_at`) VALUES
@@ -353,7 +355,7 @@ INSERT INTO `services` (`id`, `icon`, `title`, `content`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `summary`
+-- Table structure for table `summary`
 --
 
 CREATE TABLE `summary` (
@@ -365,7 +367,7 @@ CREATE TABLE `summary` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `summary`
+-- Dumping data for table `summary`
 --
 
 INSERT INTO `summary` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -374,7 +376,7 @@ INSERT INTO `summary` (`id`, `name`, `description`, `created_at`, `updated_at`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `testimoni`
+-- Table structure for table `testimoni`
 --
 
 CREATE TABLE `testimoni` (
@@ -389,7 +391,7 @@ CREATE TABLE `testimoni` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `testimoni`
+-- Dumping data for table `testimoni`
 --
 
 INSERT INTO `testimoni` (`id`, `photo`, `name`, `profesion`, `rating`, `quote`, `created_at`, `updated_at`) VALUES
@@ -397,12 +399,12 @@ INSERT INTO `testimoni` (`id`, `photo`, `name`, `profesion`, `rating`, `quote`, 
 (5, '683615175f7bc_kucing2.jpeg', 'Siddiq', 'Web Programming', 5, 'gfdgdfgdfgdf', '2025-05-26 01:12:02', '2025-05-27 19:40:07'),
 (6, '6836152758083_kucing3.jpeg', 'Raymond', 'Data Science', 5, 'asdfasfsdfsdf', '2025-05-26 01:12:22', '2025-05-27 19:40:23'),
 (7, '6836153216875_kucing4.jpeg', 'William', 'IT Consultant', 5, 'asdfasdasdas', '2025-05-26 01:12:43', '2025-05-27 19:40:34'),
-(8, '6836153b46948_kucing5.jpeg', 'Agra', 'Data Analyst', 5, 'asedfasdfsdfsd', '2025-05-26 01:13:11', '2025-05-27 19:40:43');
+(8, '6836153b46948_kucing5.jpeg', 'Agra', 'Data Analyst', 5, 'asedfasdfsdfsd123', '2025-05-26 01:13:11', '2025-05-30 03:46:40');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -416,7 +418,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `id_level`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
@@ -431,227 +433,227 @@ INSERT INTO `users` (`id`, `id_level`, `name`, `email`, `password`, `created_at`
 --
 
 --
--- Indeks untuk tabel `about`
+-- Indexes for table `about`
 --
 ALTER TABLE `about`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `contacts`
+-- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `education`
+-- Indexes for table `education`
 --
 ALTER TABLE `education`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `experience`
+-- Indexes for table `experience`
 --
 ALTER TABLE `experience`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `fakta`
+-- Indexes for table `fakta`
 --
 ALTER TABLE `fakta`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `home`
+-- Indexes for table `home`
 --
 ALTER TABLE `home`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kemampuan`
+-- Indexes for table `kemampuan`
 --
 ALTER TABLE `kemampuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `levels`
+-- Indexes for table `levels`
 --
 ALTER TABLE `levels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `picture_project`
+-- Indexes for table `picture_project`
 --
 ALTER TABLE `picture_project`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `portofolio`
+-- Indexes for table `portofolio`
 --
 ALTER TABLE `portofolio`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id_to_id_category` (`id_category`);
 
 --
--- Indeks untuk tabel `profiles`
+-- Indexes for table `profiles`
 --
 ALTER TABLE `profiles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `project`
+-- Indexes for table `project`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `services`
+-- Indexes for table `services`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `summary`
+-- Indexes for table `summary`
 --
 ALTER TABLE `summary`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `testimoni`
+-- Indexes for table `testimoni`
 --
 ALTER TABLE `testimoni`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `level_id_to_id_level` (`id_level`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `about`
+-- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `contacts`
+-- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `education`
+-- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `experience`
+-- AUTO_INCREMENT for table `experience`
 --
 ALTER TABLE `experience`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `fakta`
+-- AUTO_INCREMENT for table `fakta`
 --
 ALTER TABLE `fakta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `home`
+-- AUTO_INCREMENT for table `home`
 --
 ALTER TABLE `home`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `kemampuan`
+-- AUTO_INCREMENT for table `kemampuan`
 --
 ALTER TABLE `kemampuan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `levels`
+-- AUTO_INCREMENT for table `levels`
 --
 ALTER TABLE `levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `picture_project`
+-- AUTO_INCREMENT for table `picture_project`
 --
 ALTER TABLE `picture_project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `portofolio`
+-- AUTO_INCREMENT for table `portofolio`
 --
 ALTER TABLE `portofolio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `profiles`
+-- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `project`
+-- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `services`
+-- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `summary`
+-- AUTO_INCREMENT for table `summary`
 --
 ALTER TABLE `summary`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `testimoni`
+-- AUTO_INCREMENT for table `testimoni`
 --
 ALTER TABLE `testimoni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `portofolio`
+-- Constraints for table `portofolio`
 --
 ALTER TABLE `portofolio`
   ADD CONSTRAINT `category_id_to_id_category` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `level_id_to_id_level` FOREIGN KEY (`id_level`) REFERENCES `levels` (`id`);

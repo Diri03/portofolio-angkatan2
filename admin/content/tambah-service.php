@@ -40,8 +40,7 @@
 <form action="" method="post" enctype="multipart/form-data">
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Logo *</label>
-            
+            <label for="">Logo <span class="text-danger">*</span></label>
         </div>
         <div class="col-sm-10">
             <input required type="text" name="logo" class="form-control" placeholder="Masukkan Iconnya" value="<?php echo $nilaiLogo; ?>">
@@ -49,7 +48,7 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Judul *</label>
+            <label for="">Judul <span class="text-danger">*</span></label>
             
         </div>
         <div class="col-sm-10">
@@ -58,10 +57,10 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Konten *</label>
+            <label for="">Konten <span class="text-danger">*</span></label>
         </div>
         <div class="col-sm-10">
-            <textarea class="form-control" name="content" id="" cols="30" rows="10"><?php echo $nilaiContent; ?></textarea>
+            <textarea required class="form-control" name="content" id="summernote" cols="30" rows="10"><?php echo $nilaiContent; ?></textarea>
         </div>
     </div>
     <div class="mb-3 row" align="center">

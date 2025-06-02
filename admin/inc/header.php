@@ -71,10 +71,10 @@
                             <a href="?page=manage-summary" class="dropdown-item">Summary</a>
                         </li>
                         <li>
-                            <a href="?page=manage-education" class="dropdown-item">Education</a>
+                            <a href="?page=educations" class="dropdown-item">Education</a>
                         </li>
                         <li>
-                            <a href="?page=manage-experience" class="dropdown-item">Experience</a>
+                            <a href="?page=experiences" class="dropdown-item">Experience</a>
                         </li>
                     </ul>
                 </li>

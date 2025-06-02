@@ -1,12 +1,6 @@
 <?php 
     $query = mysqli_query($config, "SELECT * FROM contacts ORDER BY id DESC");
     $row = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-    // if (isset($_GET["delete"])) {
-    //     $id = $_GET["delete"];
-    //     $query = mysqli_query($config, "DELETE FROM contacts WHERE id='$id'");
-    //     header("location:?page=contact&hapus=berhasil");
-    // }
 ?>
 
 <div class="card-body">

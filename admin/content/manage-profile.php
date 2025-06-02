@@ -1,6 +1,4 @@
 <?php 
-    include "config/koneksi.php";
-
     if (isset($_POST["simpan"])) {
         $photo = $_FILES["photo"]["name"];
         $tmp_name = $_FILES["photo"]["tmp_name"];
@@ -79,34 +77,11 @@
                 }
             }
         }
-
-        // if ($photo["error"] == 0) {
-            
-        // }
-
-        // $insertQ = mysqli_query($config, "INSERT INTO profiles (profile_name, profesion, description, photo) VALUES ('$profile_name', '$profesion', '$description', '$filename')");
-        // if ($insertQ) {
-        //     header("location:dashboard.php?page=manage-profile");
-        // }
     }
 
 
     $selectProfile = mysqli_query($config, "SELECT * FROM about");
     $rowProfile = mysqli_fetch_assoc($selectProfile);
-    // if (isset($_GET["del"])) {
-    //     $isDel = $_GET["del"];
-    //     $selectPhoto = mysqli_query($config, "SELECT * FROM profiles WHERE id=$isDel");
-    //     $rowPhoto = mysqli_fetch_assoc($selectPhoto);
-    //     unlink("uploads/" . $rowPhoto["photo"]);
-    //     $delete = mysqli_query($config, "DELETE FROM profiles WHERE id=$isDel");
-    //     if ($delete) {
-    //         header("location:dashboard.php?page=manage-profile");
-    //     }
-
-    // }
-
-    // $selectProfile = mysqli_query($config, "SELECT * FROM profiles");
-    // $row = mysqli_fetch_assoc($selectProfile);
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
@@ -116,44 +91,44 @@
         <img src="uploads/<?php echo isset($rowProfile["photo"]) ? $rowProfile["photo"] : "" ?>" alt="" width="200">
     </div>
     <div class="mb-3">
-        <label class="form-label">Judul</label>
-        <input type="text" class="form-control" name="title" value="<?php echo isset($rowProfile["title"]) ? $rowProfile["title"] : "" ?>">
+        <label class="form-label">Judul <span class="text-danger">*</span></label>
+        <input required type="text" class="form-control" name="title" value="<?php echo isset($rowProfile["title"]) ? $rowProfile["title"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">Konten</label>
-        <textarea id="summernote" name="content" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["content"]) ? $rowProfile["content"] : "" ?></textarea>
+        <label class="form-label">Konten <span class="text-danger">*</span></label>
+        <textarea required id="summernote" name="content" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["content"]) ? $rowProfile["content"] : "" ?></textarea>
     </div>
     <div class="mb-3">
-        <label class="form-label">Birthday</label>
-        <input type="date" class="form-control" name="birthday" value="<?php echo isset($rowProfile["birthday"]) ? $rowProfile["birthday"] : "" ?>">
+        <label class="form-label">Birthday <span class="text-danger">*</span></label>
+        <input required type="date" class="form-control" name="birthday" value="<?php echo isset($rowProfile["birthday"]) ? $rowProfile["birthday"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">Website</label>
-        <input type="text" class="form-control" name="website" value="<?php echo isset($rowProfile["website"]) ? $rowProfile["website"] : "" ?>">
+        <label class="form-label">Website <span class="text-danger">*</span></label>
+        <input required type="text" class="form-control" name="website" value="<?php echo isset($rowProfile["website"]) ? $rowProfile["website"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">Phone</label>
-        <input type="text" class="form-control" name="phone" value="<?php echo isset($rowProfile["phone"]) ? $rowProfile["phone"] : "" ?>">
+        <label class="form-label">Phone <span class="text-danger">*</span></label>
+        <input required type="text" class="form-control" name="phone" value="<?php echo isset($rowProfile["phone"]) ? $rowProfile["phone"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">City</label>
-        <input type="text" class="form-control" name="city" value="<?php echo isset($rowProfile["city"]) ? $rowProfile["city"] : "" ?>">
+        <label class="form-label">City <span class="text-danger">*</span></label>
+        <input required type="text" class="form-control" name="city" value="<?php echo isset($rowProfile["city"]) ? $rowProfile["city"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">Degree</label>
-        <input type="text" class="form-control" name="degree" value="<?php echo isset($rowProfile["degree"]) ? $rowProfile["degree"] : "" ?>">
+        <label class="form-label">Degree <span class="text-danger">*</span></label>
+        <input required type="text" class="form-control" name="degree" value="<?php echo isset($rowProfile["degree"]) ? $rowProfile["degree"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" name="email" value="<?php echo isset($rowProfile["email"]) ? $rowProfile["email"] : "" ?>">
+        <label class="form-label">Email <span class="text-danger">*</span></label>
+        <input required type="email" class="form-control" name="email" value="<?php echo isset($rowProfile["email"]) ? $rowProfile["email"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">Freelance</label>
-        <input type="text" class="form-control" name="freelance" value="<?php echo isset($rowProfile["freelance"]) ? $rowProfile["freelance"] : "" ?>">
+        <label class="form-label">Freelance <span class="text-danger">*</span></label>
+        <input required type="text" class="form-control" name="freelance" value="<?php echo isset($rowProfile["freelance"]) ? $rowProfile["freelance"] : "" ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label">Detail Title</label>
-        <textarea id="summernote" name="detailTitle" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["detailTitle"]) ? $rowProfile["detailTitle"] : "" ?></textarea>
+        <label class="form-label">Detail Title <span class="text-danger">*</span></label>
+        <textarea required name="detailTitle" class="form-control" cols="30" rows="10"><?php echo isset($rowProfile["detailTitle"]) ? $rowProfile["detailTitle"] : "" ?></textarea>
     </div>
     <div class="mb-3">
         <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>

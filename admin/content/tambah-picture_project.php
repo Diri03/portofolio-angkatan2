@@ -6,7 +6,6 @@
         $filepath = "uploads/" . $filename;
         unlink("uploads/" . $filename);
         move_uploaded_file($tmp_name, $filepath);
-
         $ekstensi = ["png", "jpg", "jpeg"];
         $eks = pathinfo($photo, PATHINFO_EXTENSION);
         if (!in_array($eks, $ekstensi)) {
@@ -26,25 +25,38 @@
 
     if (isset($_POST["ubah"])) {
         $photo = $_FILES["photo"]["name"];
-        $tmp_name = $_FILES["photo"]["tmp_name"];
-        $filename = uniqid() . "_" . basename($photo);
-        $filepath = "uploads/" . $filename;
-        unlink("uploads/" . $filename);
-        move_uploaded_file($tmp_name, $filepath);
-        $queryUpdate = mysqli_query($config, "UPDATE picture_project SET photo='$filename' WHERE id='$id_user'");
-        if ($queryUpdate) {
-            header("location:?page=picture_project&ubah=berhasil");
+        if (!empty($photo)) {
+            $tmp_name = $_FILES["photo"]["tmp_name"];
+            $filename = uniqid() . "_" . basename($photo);
+            $filepath = "uploads/" . $filename;
+            unlink("uploads/" . $filename);
+            move_uploaded_file($tmp_name, $filepath);
+            $ekstensi = ["png", "jpg", "jpeg"];
+            $eks = pathinfo($photo, PATHINFO_EXTENSION);
+            if (!in_array($eks, $ekstensi)) {
+                $error[] = "Mohon maaf, ekstensi file tidak ditemukan";
+            }else{
+                $queryUpdate = mysqli_query($config, "UPDATE picture_project SET photo='$filename' WHERE id='$id_user'");
+                if ($queryUpdate) {
+                    header("location:?page=picture_project&ubah=berhasil");
+                }
+            }
         }
+        header("location:?page=picture_project");
     }
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Photo</label>
+            <label for="">Photo <?php echo isset($_GET["edit"]) ? "" : "<span class='text-danger'>*</span>"; ?></label>
         </div>
         <div class="col-sm-10">
-            <input type="file" name="photo">
+            <input <?php echo isset($_GET["edit"]) ? '' : 'required'; ?> type="file" name="photo" class="form-control">
+            <?php if (isset($_GET["edit"])): ?>
+                <br><br>
+                <img src="uploads/<?php echo $rowEdit['photo']; ?>" width="200px" alt="">
+            <?php endif; ?>
         </div>
     </div>
     <div class="mb-3 row" align="center">

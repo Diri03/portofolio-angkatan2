@@ -94,7 +94,9 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="admin/uploads/<?php echo $rowProfile["photo"]; ?>" class="img-fluid" alt="">
+            <?php if (!empty($rowProfile["photo"])) { ?>
+              <img src="admin/uploads/<?php echo $rowProfile["photo"]; ?>" class="img-fluid" alt="">
+            <?php } ?>
           </div>
           <div class="col-lg-8 content">
             <h2><?php echo isset($rowProfile["title"]) ? $rowProfile["title"] : "" ?></h2>

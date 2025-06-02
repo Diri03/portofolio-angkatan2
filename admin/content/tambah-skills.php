@@ -37,8 +37,7 @@
 <form action="" method="post">
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Skill *</label>
-            
+            <label for="">Skill <span class="text-danger">*</span></label>
         </div>
         <div class="col-sm-10">
             <input required type="text" name="skill" class="form-control" placeholder="Masukkan Skill Anda" value="<?php echo $nilaiSkill; ?>">
@@ -46,7 +45,7 @@
     </div>
     <div class="mb-3 row">
         <div class="col-sm-2">
-            <label for="">Rating *</label>
+            <label for="">Rating <span class="text-danger">*</span></label>
         </div>
         <div class="col-sm-10">
             <input required type="number" name="bar" min="0" max="100" class="form-control" placeholder="Masukkan Rating Anda" value="<?php echo $nilaiBar; ?>">

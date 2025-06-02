@@ -53,8 +53,9 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
-
-      <img src="admin/uploads/<?php echo $rowHome["photo"]; ?>" alt="" data-aos="fade-in">
+      <?php if (!empty($rowHome["photo"])) { ?>
+        <img src="admin/uploads/<?php echo $rowHome["photo"]; ?>" alt="" data-aos="fade-in">
+      <?php } ?>
 
       <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
         <div class="row justify-content-center">

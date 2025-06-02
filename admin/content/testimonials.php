@@ -4,7 +4,10 @@
 
     if (isset($_GET["delete"])) {
         $id = $_GET["delete"];
+        $queryPhoto = mysqli_query($config, "SELECT * FROM testimoni WHERE id='$id'");
+        $rowPhoto = mysqli_fetch_assoc($queryPhoto);
         $query = mysqli_query($config, "DELETE FROM testimoni WHERE id='$id'");
+        unlink("../admin/uploads/" . $rowPhoto["photo"]);
         header("location:?page=testimonials&hapus=berhasil");
     }
 ?>
